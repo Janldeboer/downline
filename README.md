@@ -37,7 +37,7 @@ To support this project, you can [donate to the developer](https://www.paypal.co
 
 ## Developer Instructions
 
-After downloading the source code and having installed all the [prerequesites for your system](https://tauri.studio/en/docs/getting-started/intro)
+After downloading the source code and having installed all the [prerequesites for your system](https://tauri.studio/en/docs/getting-started/prerequisites)
 
 Install dependencies:
 
