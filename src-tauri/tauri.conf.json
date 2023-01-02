@@ -14,7 +14,7 @@
       "all": false,
       "shell": {
         "execute": true,
-        "open": true,
+        "open": "^",
         "scope": [
           {
             "name": "yt-dlp",
@@ -28,6 +28,9 @@
       },
       "path": {
         "all": true
+      },
+      "clipboard": {
+        "readText": true
       }
     },
     "bundle": {

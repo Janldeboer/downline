@@ -465,7 +465,7 @@
 
 <script lang="ts">
 import { defineComponent, reactive, ref, computed, watch, toRef } from "vue";
-import { app, event, shell, path, dialog } from "@tauri-apps/api";
+import { app, event, shell, path, dialog, clipboard } from "@tauri-apps/api";
 import { useStore } from "./store";
 import { DownloadableItem, Downloader } from "./ytdl";
 import { debounce } from "@github/mini-throttle";
@@ -473,7 +473,6 @@ import { debounce } from "@github/mini-throttle";
 // TODO: Simply putting this next to a youtube-dl.exe works, except that the antivirus program will hate you for it. Weird.
 
 // TODO: Auto-updater
-// TODO: Clipboard
 // TODO: Update readme
 // TODO: Update website
 // TODO: Advertise a bit
@@ -778,10 +777,11 @@ export default defineComponent({
 
         newURL.value = "";
       } else {
-        // Get link from clipboard
-        // TODO: Hopefully the next Tauri update gets clipboard support
-        // Or maybe rewrite this too in Rust? (Like, a purely Rust based fetchInfo function!)
-        newURL.value = clipboard.readText();
+        const clipboardText = (await clipboard.readText()) ?? "";
+        const isUrl = clipboardText.startsWith("http");
+        if (isUrl) {
+          newURL.value = clipboardText;
+        }
       }
     }
 
@@ -962,7 +962,6 @@ export default defineComponent({
     }
 
     function openLink(link: string) {
-      // TODO: Not allowed!
       return shell.open(link);
     }
 
