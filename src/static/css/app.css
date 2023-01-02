@@ -1,0 +1,157 @@
+@import url("https://fonts.googleapis.com/css?family=Rubik:400,500");
+
+:root {
+  --titlebar: #1d1d1d;
+  --background: #2f2f2f;
+  --highlight: rgba(120, 120, 120, 0.4);
+  --scrollbar: #666666;
+
+  --black-dark: #222;
+  --black-hover: #2a2a2a;
+  --black-light: #444;
+
+  --gray-dark: #848484;
+  --gray-light: #aeaeae;
+
+  --red-dark: #e53935;
+  --red-light: #f44336;
+
+  --blue-dark: #1976d2;
+  --blue-light: #1e88e5;
+}
+
+body {
+  font-family: "Rubik", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial,
+    sans-serif;
+  margin: 0;
+  overflow-y: hidden;
+}
+
+button {
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  border: none;
+  text-transform: uppercase;
+  letter-spacing: 0.75px;
+  outline: none;
+  cursor: pointer;
+  user-select: none;
+}
+
+#extras {
+  transition: transform 0.25s;
+  z-index: 3;
+  position: relative;
+}
+.show-extras {
+  transform: translateY(calc(-100vh + 30px));
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+.fade-enter-to,
+.fade-leave {
+  opacity: 1;
+}
+.fade-leave-active,
+.fade-enter-active {
+  transition: opacity 0.25s;
+}
+.fade-leave-active.downloadable {
+  position: absolute;
+}
+.fade-move {
+  transition: transform 0.25s;
+}
+
+/* ----- Tooltips ----- */
+[data-tooltip] {
+  position: relative;
+  z-index: 2;
+}
+
+[data-tooltip]:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  font-family: "Rubik";
+  left: 50%;
+  top: 50%;
+  text-align: center;
+  white-space: nowrap;
+  padding: 3px 5px;
+  height: 12px;
+  line-height: 12px;
+  border-radius: 4px;
+  font-weight: 400;
+  font-size: 13px;
+  color: white;
+  transform: translateX(-50%) translateY(-30px);
+  background-color: var(--black-dark);
+  animation: appear 500ms;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(0);
+  }
+  95% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-25px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-30px);
+  }
+}
+
+/* ----- Scrollbar ----- */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar);
+}
+
+/* ----- Icons ----- */
+.fas {
+  cursor: pointer;
+}
+
+.fa-music {
+  font-size: 17px;
+}
+
+.fa-closed-captioning {
+  font-size: 21px;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+/* Spinner */
+.spinner {
+  display: inline-block;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  border-left-color: var(--gray-light);
+  border-radius: 50%;
+  width: 11px;
+  height: 11px;
+  position: relative;
+  top: 2.5px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

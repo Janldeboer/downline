@@ -1,0 +1,244 @@
+.downloadable {
+  display: flex;
+  height: 75px;
+  width: 100%;
+  position: relative;
+  padding: 3px 0;
+}
+.downloadable:hover {
+  background-color: var(--black-hover);
+}
+.downloadable.chosen {
+  background-color: var(--highlight);
+}
+.downloadable.chosen .options .fas {
+  color: var(--gray-dark);
+}
+.downloadable.chosen .options .fas:hover {
+  color: var(--gray-light);
+}
+.downloadable.chosen .options .selected {
+  color: white;
+}
+.downloadable.chosen .options .selected:hover {
+  color: white;
+}
+.downloadable.chosen:hover {
+  background-color: var(--highlight);
+}
+.downloadable:last-child {
+  margin-bottom: 10px;
+}
+.downloadable:first-child {
+  margin-top: 3px;
+}
+.downloadable .left {
+  position: relative;
+}
+/* ----- Left ----- */
+.left {
+  padding-left: 3px;
+}
+.left img {
+  height: 75px;
+  width: 75px;
+  border-radius: 50%;
+  object-fit: cover;
+  user-select: none;
+}
+
+.left .fas {
+  position: absolute;
+  color: rgba(255, 255, 255, 0);
+  background-color: rgba(0, 0, 0, 0.1);
+  font-size: 42px;
+  top: 0;
+  left: 0;
+  height: 75px;
+  width: 75px;
+  border-radius: 50%;
+  margin-left: 3px;
+  text-align: center;
+  line-height: 75px;
+}
+
+.left .fa-redo-alt {
+  opacity: 0;
+}
+
+.downloadable:hover .left .fas {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.left .fa-pause-circle {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.left .fa-check {
+  cursor: default;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.downloadable:hover .left .fa-check {
+  background-color: rgba(0, 0, 0, 0.8);
+  opacity: 0;
+}
+
+.downloadable:hover .left .fa-redo-alt {
+  background-color: rgba(0, 0, 0, 0.8);
+  opacity: 1;
+}
+
+/* ----- Middle ----- */
+.middle {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  width: calc(100% - 75px - 20px - 3px);
+  margin: 3px 0;
+}
+
+.middle .duration {
+  font-size: 13px;
+  margin-left: 8px;
+  color: var(--gray-dark);
+  user-select: none;
+  flex-grow: 1;
+}
+
+.middle h1 {
+  margin: 0 0 0 2px;
+  color: white;
+  padding-left: 5px;
+  font-weight: 400;
+  font-size: 15px;
+  white-space: nowrap;
+  overflow-x: scroll;
+  user-select: none;
+}
+.middle h1::-webkit-scrollbar {
+  display: none;
+}
+
+/* Options */
+.options {
+  padding-left: 5px;
+  display: flex;
+  height: 30%;
+  user-select: none;
+}
+
+.options div {
+  width: 33.33%;
+  display: flex;
+  align-self: center;
+}
+.quality {
+  color: white;
+  min-width: 40px;
+  padding-left: 8px;
+  padding-right: 8px;
+  text-align: center;
+  line-height: 100%;
+  font-weight: 500;
+}
+
+.option-icon {
+  align-self: center;
+  width: 33.33%;
+  text-align: center;
+}
+
+.options .fas {
+  color: var(--black-light);
+}
+.options .fas:hover {
+  color: var(--gray-dark);
+}
+.options .fas:active {
+  color: var(--black-light);
+}
+
+.options .selected {
+  color: white;
+}
+.options .selected:hover {
+  color: white;
+}
+
+/* Progress Bar and Info */
+.progress {
+  width: 100%;
+  height: 30%;
+  padding-left: 5px;
+  user-select: none;
+}
+
+.progress .info span {
+  letter-spacing: 0.3px;
+  font-size: 12px;
+  color: var(--gray-light);
+  display: flex;
+  justify-content: space-between;
+}
+
+.progress .info .postprocessing {
+  justify-content: start;
+  margin-left: 4px;
+}
+.progress .info .postprocessing .spinner {
+  margin-right: 5px;
+  top: -0.6px;
+}
+
+.progress .bar {
+  display: block;
+  width: 100%;
+  height: 5px;
+  background-color: var(--black-light);
+  border-radius: 4px;
+}
+
+.progress .bar .value {
+  display: block;
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.25s;
+  background-color: var(--blue-light);
+}
+
+/* Open Folder */
+.progress .info .fa-folder {
+  font-size: 17px;
+  margin-left: 3px;
+}
+.progress .info .fa-folder:hover {
+  color: white;
+}
+
+/* ----- Right ----- */
+.right {
+  padding-top: 4px;
+  width: 20px;
+  display: block;
+}
+.close {
+  width: 20px;
+  font-size: 22px;
+  line-height: 16px;
+  color: var(--gray-dark);
+  display: block;
+  opacity: 0;
+  text-align: center;
+  user-select: none;
+  cursor: pointer;
+}
+.downloadable:hover .close {
+  opacity: 1;
+}
+.close:hover {
+  color: white;
+}
