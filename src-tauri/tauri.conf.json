@@ -14,7 +14,14 @@
       "all": false,
       "shell": {
         "execute": true,
-        "open": true
+        "open": true,
+        "scope": [
+          {
+            "name": "yt-dlp",
+            "cmd": "yt-dlp",
+            "args": true
+          }
+        ]
       },
       "dialog": {
         "open": true

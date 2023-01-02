@@ -2,7 +2,7 @@
 name = "app"
 version = "4.0.0"
 description = "A free, cross-platform desktop application for downloading video and audio"
-authors = ["jarbun", "Stefnotch"]
+authors = ["jarbun", "Stefnotch", "Janldeboer"]
 license = "MIT"
 repository = "https://github.com/stefnotch/downline"
 default-run = "app"
